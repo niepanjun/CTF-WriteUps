@@ -1,4 +1,6 @@
-##[BUUCTF]jarvisoj_level2_writeup
+[BUUCTF]jarvisoj_level2_writeup
+
+**新手上路，欢迎交流指错**
 
 哈哈哈哈哈哈，我终于弄懂怎么插入图片啦
 
