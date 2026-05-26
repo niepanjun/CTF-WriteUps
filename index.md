@@ -10,6 +10,5 @@
 
 ## 学习笔记
 - [命令绕过技巧](./notes/command_bypass.md)
-- [格式化字符串漏洞](./notes/format_string.md)
 
 > 持续更新中，欢迎交流指错！
