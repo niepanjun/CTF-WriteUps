@@ -1,5 +1,7 @@
 **新手上路，欢迎交流指错**
 
+
+
 先checksec
 
 <img width="361" height="148" alt="image" src="https://github.com/user-attachments/assets/576c02f5-0140-4e37-b62b-2552ffb0aa48" />
@@ -24,3 +26,7 @@
 
 发现没有
 
+那么进行详细分析，接下来应该怎样做
+
+> [!IMPORTANT]
+> 
