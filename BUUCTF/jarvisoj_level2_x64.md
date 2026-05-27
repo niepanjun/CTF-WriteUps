@@ -1,8 +1,9 @@
 **新手上路，欢迎交流指错**
 
  **参考与致谢**  
-> 本题解题思路参考了以下资源，感谢原作者的分享：
->https://www.cnblogs.com/nemuzuki/p/17218722.html 作者：无眠之月
+> 本题writeup思路参考了以下资源，感谢原作者的分享：
+> 
+>https://www.cnblogs.com/nemuzuki/p/17218722.html  作者：无眠之月
 
 依旧先checksec
 
