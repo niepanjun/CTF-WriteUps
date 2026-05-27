@@ -43,14 +43,14 @@
 >
 > **接下来进行可行性分析：**
 >
-> **ret 2 text**:在text段有现有的函数或代码片段可以被我们利用，比如说现成的system(/bin/sh)后门函数，或gadget（pop rid,ret)等 
+> **ret 2 text**: 在text段有现有的函数或代码片段可以被我们利用，比如说现成的system(/bin/sh)后门函数，或gadget（pop rid,ret)等 
 > 缺点是：依赖现有程序，可能找不到，优点是：不需要泄露地址，比较简单
 >
-> **ret 2 shellcode**:在栈或堆上执行构造过的机器码（shellcode），但在现在的环境中极少出现，实用性不高
+> **ret 2 shellcode**: 在栈或堆上执行构造过的机器码（shellcode），但在现在的环境中极少出现，实用性不高
 >
-> **ret 2 syscall**：
+> **ret 2 syscall**: 
 >
-> **ret 2 libc**:跳转到动态链接库(libc.so)中的函数(system,execve等)
+> **ret 2 libc**: 跳转到动态链接库(libc.so)中的函数(system,execve等)
 >
 > 原理：大多数题都动态链接
 >
