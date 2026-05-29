@@ -48,7 +48,19 @@
 >
 > **ret 2 shellcode**: 在栈或堆上执行构造过的机器码（shellcode），但在现在的环境中极少出现，实用性不高
 >
-> **ret 2 syscall**: 
+> **ret 2 syscall**: 在有NX且没有开启PIE的静态链接程序，找不到system(/bin/sh)，用gadget拼接出exeve("/bin/sh",NULL,NULL)
+>
+> 利用步骤
+>
+>1. 检查程序属性：checksec 确认 NX 开启、静态链接、无 PIE。
+>
+>2. 寻找 gadget：用 ROPgadget 查找 pop 寄存器; ret、int 0x80 或 syscall。
+>
+>3. 定位 "/bin/sh"：若无该字符串，可用 read() 写入到 .bss 段。
+>
+>4. 计算偏移量：GDB 调试，输入特定长度数据直到覆盖返回地址。
+>
+>5. 构造 payload：按系统调用约定依次设置寄存器并触发系统调用。
 >
 > **ret 2 libc**: 跳转到动态链接库(libc.so)中的函数(system,execve等)
 >
