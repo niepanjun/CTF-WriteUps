@@ -10,7 +10,11 @@
 
 开了NX栈不可执行，并且是64位程序
 
-看看IDA main
+再file一下(差点忘了)
+
+<img width="796" height="90" alt="屏幕截图 2026-05-29 212939" src="https://github.com/user-attachments/assets/d5400b50-faae-4211-ae78-99acbc530273" />
+
+知道是动态链接，再看看IDA main
 
 <img width="915" height="793" alt="image" src="https://github.com/user-attachments/assets/f2dbe6ab-cedb-4fec-8ef6-1b465a20cd6f" />
 
