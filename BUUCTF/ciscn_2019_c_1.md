@@ -77,3 +77,12 @@
 > 原理：大多数题都动态链接
 >
 > 难点：ASLR(地址空间布局随机化)会导致libc基址每次运行都会改变
+
+
+理清思路，先利用put函数漏洞获得偏移量
+
+那就先找找构造所需要的地址
+
+<img width="798" height="458" alt="image" src="https://github.com/user-attachments/assets/9b793a86-4c25-42f9-8b3a-06f41e381751" />
+
+构造第一次payload
