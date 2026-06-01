@@ -122,7 +122,7 @@ r.interactive()
 
 <img width="797" height="88" alt="image" src="https://github.com/user-attachments/assets/b2438e48-54b3-4043-96c0-9e3ccbb2c1f9" />
 
-既然有了以上信息，那么就可以计算基地址了，依靠LibcSearcher
+既然成功了，那么就可以计算基地址了，依靠LibcSearcher
 
 先在开头导入 from LibcSearcher import * 再利用LibcSearch查找 libc=LibcSearch("put",puts_addr)
 
