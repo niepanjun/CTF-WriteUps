@@ -79,9 +79,13 @@
 > 难点：ASLR(地址空间布局随机化)会导致libc基址每次运行都会改变
 
 
-理清思路，先利用put函数漏洞获得偏移量
+理清思路，先利用gets函数漏洞获得偏移量,构造payload需要利用 puts_got , puts_plt 打印（泄露）出puts的地址 ，然后不要忘记返回地址，以便于第二次攻击，那么我就应该吧elf=ELF(./文件名)安排上，因为可以自动解析ELF二进制文件的函数地址，GOT/PLT，架构，字符串位置等，解放双手，还要把最终结果打印出来方便检查，那么就需要对获得的puts地址进行处理与输出,也就是：
 
-那就先找找构造所需要的地址
+puts_addr=u64(r.recvuntil("\n")[:-1].ljust(8,b"\x00"))
+
+print(hex(puts_addr))
+ 
+那就先找找构造所需要的地址，也就是 pop rid;ret 与 需要的返回地址
 
 <img width="798" height="458" alt="image" src="https://github.com/user-attachments/assets/9b793a86-4c25-42f9-8b3a-06f41e381751" />
 
