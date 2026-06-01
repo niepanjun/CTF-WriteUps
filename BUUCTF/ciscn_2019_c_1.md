@@ -47,16 +47,16 @@
 >
 > **接下来进行可行性分析：**
 >
-> ** <ret 2 text> **:
+>  <ret 2 text> :
 >
 > 在text段有现有的函数或代码片段可以被我们利用，比如说现成的system(/bin/sh)后门函数，或gadget（pop rid,ret)等 
 > 缺点是：依赖现有程序，可能找不到，优点是：不需要泄露地址，比较简单
 >
-> ** <ret 2 shellcode> **:
+>  <ret 2 shellcode> :
 >
 > 在栈或堆上执行构造过的机器码（shellcode），但在现在的环境中极少出现，实用性不高
 >
-> ** <ret 2 syscall> **:
+>  <ret 2 syscall> :
 >
 > 在有NX且没有开启PIE的静态链接程序，找不到system(/bin/sh)，用gadget拼接出exeve("/bin/sh",NULL,NULL)
 >
@@ -72,7 +72,7 @@
 >
 >5. 构造 payload：按系统调用约定依次设置寄存器并触发系统调用。
 >
-> ** <ret 2 libc> **: 跳转到动态链接库(libc.so)中的函数(system,execve等)
+> <ret 2 libc> : 跳转到动态链接库(libc.so)中的函数(system,execve等)
 >
 > 原理：大多数题都动态链接
 >
@@ -86,6 +86,9 @@ puts_addr=u64(r.recvuntil("\n")[:-1].ljust(8,b"\x00"))
 print(hex(puts_addr))
  
 那就先找找构造所需要的地址，也就是 pop rid;ret 与 需要的返回地址
+
+<img width="719" height="167" alt="image" src="https://github.com/user-attachments/assets/556c6c84-0893-4be6-86c3-af7de16465fa" />
+
 
 <img width="798" height="458" alt="image" src="https://github.com/user-attachments/assets/9b793a86-4c25-42f9-8b3a-06f41e381751" />
 
@@ -115,6 +118,24 @@ print(hex(puts_addr))
 
 r.interactive()
 ```
+打印出来的puts地址是：
+
 <img width="797" height="88" alt="image" src="https://github.com/user-attachments/assets/b2438e48-54b3-4043-96c0-9e3ccbb2c1f9" />
 
+既然有了以上信息，那么就可以计算基地址了，依靠LibcSearcher
 
+先在开头导入 from LibcSearcher import * 再利用LibcSearch查找 libc=LibcSearch("put",puts_addr)
+
+*利用dump方法可以自动查找一个函数在本道题指定的libc版本中找到该函数偏移量*
+
+libc_base=puts_addr-libc.dump("puts)
+
+然后简单多了，就套公式了
+
+system_addr=libc_base+libc.dump("system")
+
+bin_sh_addr=libc_base+libc.dump("str_bin_sh")
+
+#很多萌新可能和我一样，好奇为什么这里要用str_bin_sh，我总结了一下，只是LibcSearcher的键名这样设置，以后多写几次就记住了
+
+差不多了，添加第二次payload内容
