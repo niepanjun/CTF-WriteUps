@@ -1,12 +1,5 @@
 title: CTF WriteUps
-description: PWN/WEB/MISC 学习笔记 & BUUCTF 解题记录
-
-theme: jekyll-theme-cayman
-
-author:
-  name: niepanjun
-  avatar: /assets/avatar.png
-
+description: PWN学习笔记
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
   - jekyll-remote-theme
