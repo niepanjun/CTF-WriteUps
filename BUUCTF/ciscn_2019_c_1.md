@@ -141,7 +141,30 @@ bin_sh_addr=libc_base+libc.dump("str_bin_sh")
 差不多了，添加第二次 payload 内容
 
 > [!IMPORTANT]
-> 之所以在第二次构造 payload 的时候多加了一个 ret_addr 是因为要保证栈对齐，
+> 之所以在第二次构造 payload 的时候多加了一个 ret_addr 是因为要保证栈对齐，而栈对齐的要求，不是针对我构造的payload，而是针对system的内部运行状态
+>
+><img width="958" height="1001" alt="image" src="https://github.com/user-attachments/assets/22f4871a-027b-44d4-a9d2-b0812667fba5" />
+>
+>推理过程：
+>
+> 1.movaps要求执行时RSP%16==0
+>
+> 2.又因为在movaps之前还有一条push rbp(8字节)
+>
+> 3.所以在进入system函数之前，RSP必须满足RSP%16==8
+>
+> (这样 push rbp 减去8之后，RSP才会变成16的倍数)
+>
+> 新手容易混淆的是到底是什么改变了 RSP？
+>
+> 只有CPU执行特定汇编指令，RSP才会变
+>
+> 1.ret:
+
+
+
+
+
 
 
 ```python
