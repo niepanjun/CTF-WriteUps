@@ -1,3 +1,5 @@
 title: CTF WriteUps
 description: PWN学习笔记
-theme: minima
+remote_theme: pages-themes/minima@v0.4.1
+plugins:
+  - jekyll-remote-theme
