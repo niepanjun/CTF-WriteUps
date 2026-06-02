@@ -7,6 +7,7 @@
 - [ciscn_2019_n_8](./BUUCTF/ciscn_2019_n_81.md)
 - [bjdctf_2020_babystack](./BUUCTF/bjdctf_2020_babystack)
 - [jarvisoj_level2_x64](./BUUCTF/jarvisoj_level2_x64)
+- [ciscn_2019_c_1](./BUUCTF/ciscn_2019_c_1)
   
 
 ## 学习笔记
