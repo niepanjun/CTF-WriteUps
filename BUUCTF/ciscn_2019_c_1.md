@@ -154,17 +154,22 @@ bin_sh_addr=libc_base+libc.dump("str_bin_sh")
 > 3.所以在进入system函数之前，RSP必须满足RSP%16==8
 >
 > (这样 push rbp 减去8之后，RSP才会变成16的倍数)
->
+
+
+> 
 > 新手容易混淆的是到底是什么改变了 RSP？
 >
 > 只有CPU执行特定汇编指令，RSP才会变
 >
-> 1.ret:
-
-
-
-
-
+> 1.ret:弹出8字节给RIP，RSP + 8
+>
+> 2.pop xxx:弹出8字节给某个寄存器，RSP + 8
+>
+> 3.call:压入8字节返回地址，RSP - 8
+>
+> 4.push:压入8字节数据，RSP - 8
+>
+> 把payload想像成一排在书架上的书，自己的手指是RSP（栈指针），往书架上放多少书（构造payload），是不影响我真正要看书时（CPU执行）手指（RSP）的移动的
 
 
 ```python
