@@ -155,12 +155,11 @@ bin_sh_addr=libc_base+libc.dump("str_bin_sh")
 >
 > (这样 push rbp 减去8之后，RSP才会变成16的倍数)
 
-
 > 
 > 新手容易混淆的是到底是什么改变了 RSP？
 >
 > 只有CPU执行特定汇编指令，RSP才会变
->
+> 
 > 1.ret:弹出8字节给RIP，RSP + 8
 >
 > 2.pop xxx:弹出8字节给某个寄存器，RSP + 8
