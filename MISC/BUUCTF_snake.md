@@ -22,7 +22,24 @@
 
 <img width="553" height="355" alt="image" src="https://github.com/user-attachments/assets/e281bfff-b3d5-4723-b8fa-0fcfb3115ceb" />
 
-然后用 binwalk 分析，再用电脑自带的 Power shell 把隐藏的压缩包截断出来
+然后用 binwalk 分析，根据返回结果可以得出 binwalk 扫描出了 ZIP 文件藏在第 278260 个字节的位置，再用电脑自带的 Power shell 把隐藏的压缩包截断出来
+
+直接在CMD里面运行：
+
+```
+powershell -Command "Get-Content snake.jpg -Encoding Byte | Select-Object -Skip 278260 | Set-Content hidden.zip -Encoding Byte"
+```
+
+> [!NOTE]
+> 
+
+然后解压：
+```
+powershell Expand-Archive hidden.zip -DestinationPath extracted
+```
+
+> [!NOTE]
+> 翻译：“把刚才生成的 hidden.zip 解压，放到一个叫 extracted 的文件夹里。
 
 有两个文件，先看看key
 
