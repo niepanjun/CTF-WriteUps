@@ -24,3 +24,6 @@
 
 然后用 binwalk 分析，再用电脑自带的 Power shell 把隐藏的压缩包截断出来
 
+有两个文件，先看看key
+
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/c8100f56-f26d-4d5c-a40e-6b1bd8e15794" />
