@@ -27,3 +27,17 @@
 有两个文件，先看看key
 
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/c8100f56-f26d-4d5c-a40e-6b1bd8e15794" />
+
+用笔记本打开，发现需要对base64进行编码
+
+有两种方式，一种是在本地 CMD 里运行
+```
+powershell -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('你的Base64字符串'))"
+```
+
+<img width="843" height="62" alt="image" src="https://github.com/user-attachments/assets/2ae88d77-0059-48ba-bfdc-d3e4b1ee58e7" />
+
+第二种方法是用在线工具 https://base64.us/ 
+
+<img width="773" height="437" alt="image" src="https://github.com/user-attachments/assets/1eaa189d-34f4-470f-80ff-5539d9bd6d90" />
+
