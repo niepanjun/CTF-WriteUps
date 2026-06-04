@@ -86,4 +86,4 @@ powershell -Command "Get-Content cipher -Encoding Byte -TotalCount 16 | ForEach-
 
 发现好像不是任何常见类型
 
-有点没有思路，查了查别人的做题步骤，才发现还需要用到一个在线工具 Serpent Encryption – Easily encrypt or decrypt strings or files (online-domain-tools.com)
+有点没有思路，查了查别人的做题步骤，才发现还需要用到一个在线工具 http://serpent.online-domain-tools.com/
