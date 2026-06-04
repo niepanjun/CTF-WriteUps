@@ -88,7 +88,7 @@ powershell -Command "Get-Content cipher -Encoding Byte -TotalCount 16 | ForEach-
 
 有点没有思路，查了查别人的做题步骤，才发现还需要用到一个在线工具 http://serpent.online-domain-tools.com/
 
-<img width="1126" height="1048" alt="image" src="https://github.com/user-attachments/assets/ffc543e4-c21d-40c5-a903-18b0828a4ebd" />
+<img width="1126" height="1014" alt="ae0fe6a8c16706856fb94f5e48e1d7ee" src="https://github.com/user-attachments/assets/787d27c2-83ad-4f17-9cc9-0e5148a937bd" />
 
 key 就用之前解出的 anaconda
 
