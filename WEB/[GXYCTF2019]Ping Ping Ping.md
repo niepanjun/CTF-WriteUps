@@ -3,3 +3,16 @@
 这道题主要练习一下我的绕过能力
 
 先在题目给的网址后面加上 /?ip=127.0.0.1 并按回车
+
+<img width="667" height="332" alt="屏幕截图 2026-06-04 212630" src="https://github.com/user-attachments/assets/b2ba4879-92ba-4aad-8d16-bd22e81921d2" />
+
+这一步可以知道网页后端可以接收参数，执行命令，返回结果
+
+<img width="670" height="412" alt="image" src="https://github.com/user-attachments/assets/cee75cf5-3fde-4ef6-85c6-313c53044aad" />
+
+再 ls 一下，发现有  flag.php  index.php  这两个文件，那么flag大概率就在flag.php里面了
+
+<img width="824" height="160" alt="image" src="https://github.com/user-attachments/assets/d8462f3a-e814-4e75-9b77-4f06cf6f5dc2" />
+
+诶，做个题怎么还骂人呢
+
