@@ -87,3 +87,17 @@ powershell -Command "Get-Content cipher -Encoding Byte -TotalCount 16 | ForEach-
 发现好像不是任何常见类型
 
 有点没有思路，查了查别人的做题步骤，才发现还需要用到一个在线工具 http://serpent.online-domain-tools.com/
+
+<img width="1126" height="1048" alt="image" src="https://github.com/user-attachments/assets/ffc543e4-c21d-40c5-a903-18b0828a4ebd" />
+
+key 就用之前解出的 anaconda
+
+下载并打开得到的文件
+
+<img width="528" height="193" alt="image" src="https://github.com/user-attachments/assets/2096709c-1678-4b79-8a68-3fea798e1d9a" />
+
+得到flag
+
+```
+CTF{who_knew_serpent_cipher_existed}
+```
