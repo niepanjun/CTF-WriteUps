@@ -99,5 +99,5 @@ key 就用之前解出的 anaconda
 得到flag
 
 ```
-CTF{who_knew_serpent_cipher_existed}
+flag{who_knew_serpent_cipher_existed}
 ```
