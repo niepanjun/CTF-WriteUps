@@ -23,3 +23,8 @@
 啊哦
 
 那我们就看看另一个文件
+
+<img width="491" height="279" alt="image" src="https://github.com/user-attachments/assets/ba369739-0136-4c6d-a05b-095a7bd46cd2" />
+
+好家伙，过滤了这么多
+
