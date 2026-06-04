@@ -16,3 +16,9 @@
 
 诶，做个题怎么还骂人呢
 
+那就用 $IFS 或更精确的 $IFS$9 试试水（是Linux的变量，因为大多数网站底层运行的服务器都是Linux系统）
+
+<img width="445" height="61" alt="image" src="https://github.com/user-attachments/assets/b65925c8-e60e-4fb9-81bf-970a70792f7f" />
+
+啊哦
+
