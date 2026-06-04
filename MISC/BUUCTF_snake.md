@@ -31,7 +31,13 @@ powershell -Command "Get-Content snake.jpg -Encoding Byte | Select-Object -Skip 
 ```
 
 > [!NOTE]
-> 
+> 翻译：powershell -Command""            |告诉电脑要用 powershell 来执行" "里面的命令
+>
+> Get-Content snake.jpg -Encoding Byte             |把 snake.jpg 打开，不是当作图片，而是用数字的形式
+>
+> Select-Object -Skip 278260              |扔掉前 278260 字节，保留剩下的
+>
+> Set-Content hidden.zip -Encoding Byte            |把剩下的命名为 hidden.zip 保存
 
 然后解压：
 ```
@@ -58,3 +64,26 @@ powershell -Command "[System.Text.Encoding]::UTF8.GetString([System.Convert]::Fr
 
 <img width="773" height="437" alt="image" src="https://github.com/user-attachments/assets/1eaa189d-34f4-470f-80ff-5539d9bd6d90" />
 
+得到答案  What is Nicki Minaj's favorite song that refers to snakes?
+
+<img width="1007" height="270" alt="image" src="https://github.com/user-attachments/assets/016e0363-132d-496c-b79c-d013b42bd82d" />
+
+是 Anaconda
+
+再用记事本打开另一个文件
+
+<img width="437" height="96" alt="image" src="https://github.com/user-attachments/assets/3bd88188-8660-4103-94ea-71eba6de75d1" />
+
+发现和想像的有点不一样啊，这是因为这是一个二进制文件，而记事本一般用于打开纯文本
+
+所以在打开文件之前一般需要查看一下类型，这里我直接在 windows 的 cmd 里面看类型了
+
+```
+powershell -Command "Get-Content cipher -Encoding Byte -TotalCount 16 | ForEach-Object { '{0:X2}' -f $_ }"
+```
+
+<img width="1697" height="507" alt="image" src="https://github.com/user-attachments/assets/9d391e58-959a-4c1a-8b74-a6f954cdc526" />
+
+发现好像不是任何常见类型
+
+有点没有思路，查了查别人的做题步骤，才发现还需要用到一个在线工具 Serpent Encryption – Easily encrypt or decrypt strings or files (online-domain-tools.com)
