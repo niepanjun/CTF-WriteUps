@@ -13,7 +13,7 @@
 发现当前目录只有 index.php
 
 > [!NOTE]
-> 大概率是网站入口，作用是接收 GET/POST 参数且包含其他 PHP文件
+> index.php是网站入口，作用是接收 GET/POST 参数且包含其他 PHP文件
 
 ```
 127.0.0.1|cat index.php
