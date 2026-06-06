@@ -49,7 +49,7 @@ powershell Expand-Archive hidden.zip -DestinationPath extracted
 
 有两个文件，先看看key
 
-<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/c8100f56-f26d-4d5c-a40e-6b1bd8e15794" />
+<img width="808" height="207" alt="ec283371488520afb599c17ca75b906c" src="https://github.com/user-attachments/assets/8ed58cc1-336f-41fa-a964-ecd20c779127" />
 
 用笔记本打开，发现需要对base64进行编码
 
