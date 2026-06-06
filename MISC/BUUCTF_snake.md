@@ -28,6 +28,8 @@
 binwalk 你的文件名
 ```
 
+<img width="617" height="307" alt="屏幕截图 2026-06-03 214054" src="https://github.com/user-attachments/assets/3fce0d4e-b794-42b8-84cb-2132696ac64b" />
+
 直接在CMD里面运行：
 
 ```
