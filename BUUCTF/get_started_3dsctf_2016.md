@@ -10,4 +10,7 @@
 
 用 Shift + F12 发现没有什么可以用的字符串不出意料是 ret 2 libc
 
-那就开始准备呗
+那就开始准备呗，等等! 写着写着感觉不太对又往 function name 里面搜了搜发现漏了 get_flag
+
+<img width="812" height="515" alt="image" src="https://github.com/user-attachments/assets/c4d9186f-e90e-4c05-bfea-347a5260fcaa" />
+
