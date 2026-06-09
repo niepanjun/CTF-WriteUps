@@ -2,7 +2,7 @@
 
 先checksec一下发现只开了NX栈不可执行
 
-<img width="677" height="180" alt="image" src="https://github.com/user-attachments/assets/22804a03-661b-4d35-ad45-3e62790d63d9" />
+<img width="681" height="173" alt="image" src="https://github.com/user-attachments/assets/45cf0f06-85c0-44e2-aa59-76b33f13340a" />
 
 放 IDA 里面看看
 
