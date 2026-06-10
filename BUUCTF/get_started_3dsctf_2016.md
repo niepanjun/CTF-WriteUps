@@ -44,6 +44,15 @@ a2=0x195719D1
 >
 > <img width="1197" height="717" alt="屏幕截图 2026-06-10 203018" src="https://github.com/user-attachments/assets/d307c36c-71ea-4e67-9c2c-0f3c4b811e45" />
 
+找了找但发现有两个exit
+
+<img width="629" height="174" alt="屏幕截图 2026-06-10 204837" src="https://github.com/user-attachments/assets/72c093bb-186e-4331-a146-48df488063de" />
+
+> [!NOTE]
+> 用 exit，这是C语言标准库提供的退出函数可以刷新缓冲区
+>
+> _exit 是 Linux 系统退出直接结束程序且不会刷新缓冲区
+
 好了构造payload
 
 ```
