@@ -6,7 +6,7 @@
 
 file看看
 
-<img width="808" height="60" alt="屏幕截图 2026-06-10 095649" src="https://github.com/user-attachments/assets/b37d8fbd-080a-47f2-891d-784bd8011b60" />
+<img width="801" height="43" alt="image" src="https://github.com/user-attachments/assets/1543382e-d8ef-420f-b476-94321d40690e" />
 
 放 IDA 里面看看，有个 gets 函数
 
