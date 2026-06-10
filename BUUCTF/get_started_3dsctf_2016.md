@@ -4,9 +4,15 @@
 
 <img width="681" height="173" alt="image" src="https://github.com/user-attachments/assets/45cf0f06-85c0-44e2-aa59-76b33f13340a" />
 
-file看看
+file看看(之前就是忘了file出了大问题)
 
 <img width="801" height="43" alt="image" src="https://github.com/user-attachments/assets/1543382e-d8ef-420f-b476-94321d40690e" />
+
+> [!NOTE]
+><img width="959" height="697" alt="image" src="https://github.com/user-attachments/assets/1d2327b9-3d82-4c29-ad54-e5c268d14a9d" />
+>
+> 因为没查是静态链接，所以用了 elf 导致错误
+
 
 放 IDA 里面看看，有个 gets 函数
 
