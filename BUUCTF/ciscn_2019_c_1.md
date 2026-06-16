@@ -72,7 +72,9 @@
 >
 >5. 构造 payload：按系统调用约定依次设置寄存器并触发系统调用。
 >
-> <ret 2 libc> : 跳转到动态链接库(libc.so)中的函数(system,execve等)
+> <ret 2 libc> :
+>
+> 跳转到动态链接库(libc.so)中的函数(system,execve等)
 >
 > 原理：大多数题都动态链接
 >
