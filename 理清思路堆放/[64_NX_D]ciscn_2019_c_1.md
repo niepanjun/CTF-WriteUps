@@ -25,3 +25,12 @@
 > 
 > 第一次调用 puts 之后，puts@got 会被填成 libc 里 puts 的真实运行时地址——我们"泄漏"读的就是这个 puts@got
 > 
+
+> [!NOTE]
+>其实只有一个运行时 puts 地址 + 一个文件偏移常量：
+> 
+> puts_addr：你泄漏出来的，运行时地址（被 ASLR 随机化，比如 0x7f1234809c0）。
+> 
+> puts_off：puts 在 libc 文件里的固定偏移（常量，比如 0x809c0），来自 LibcSearcher 或题目附带的 libc。
+> 
+> libc_base = puts_addr − puts_off。
