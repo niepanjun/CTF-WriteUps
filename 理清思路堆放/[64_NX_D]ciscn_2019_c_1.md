@@ -36,3 +36,10 @@
 > puts_off：puts 在 libc 文件里的固定偏移（常量，比如 0x809c0），来自 LibcSearcher 或题目附带的 libc。
 > 
 > libc_base = puts_addr − puts_off。
+
+> [!WARNING]
+> 主 ELF 只有 puts@plt 跳板 + puts@got 指针槽，真实 puts 代码在 libc。
+>
+> 第一次调用 puts 后，puts@got 被填成 libc 里 puts 的运行时地址。
+>
+> 我们“泄漏”= 读 puts@got → 得到 puts_addr（被 ASLR 随机化）。
